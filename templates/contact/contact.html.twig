@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+        {% endfor %}
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">Utilisez ce formulaire pour envoyer un message directement au responsable du département que vous souhaitez contacter.</p>
+            <hr class="my-4">
+            <p>Tous les champs sont obligatoires.</p>
+        </div>
+        <div id="contactForm">
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            <div class="form-group">
+                <button class="btn btn-primary">Envoyer</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+
+
+{% endblock %}

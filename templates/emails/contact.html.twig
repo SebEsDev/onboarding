@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+    <div style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        <h2>Nouvelle demande de contact !</h2>
+        <table cellpadding="0" cellspacing="0" width="100%" border="0"
+               style="cellspacing:2;color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;table-layout:auto;width:100%;">
+            <tr>
+                <td style="font-weight:bold;">Prénom</td>
+                <td>{{ contact.fname }}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">Nom</td>
+                <td>{{ contact.lname }}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">Département</td>
+                <td>{{ contact.recipient }}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">Email</td>
+                <td>{{ contact.mail }}</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">Message</td>
+                <td>{{ contact.message }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+
+
