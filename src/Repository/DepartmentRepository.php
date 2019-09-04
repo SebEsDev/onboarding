@@ -19,6 +19,12 @@ class DepartmentRepository extends ServiceEntityRepository
         parent::__construct($registry, Department::class);
     }
 
+    public function getListDepartment(){
+        $query = $this->createQueryBuilder('dep');
+        $query->orderBy('dep.id', 'ASC');
+        return $query;
+    }
+
     // /**
     //  * @return Department[] Returns an array of Department objects
     //  */

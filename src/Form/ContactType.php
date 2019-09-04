@@ -6,6 +6,7 @@ use App\Entity\Contact;
 use App\Entity\Department;
 use App\Repository\DepartmentRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\DomCrawler\Field\ChoiceFormField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -30,8 +31,14 @@ class ContactType extends AbstractType
             ->add('fname', TextType::class)
             ->add('lname', TextType::class)
             ->add('mail', EmailType::class)
-            ->add('recipient', ChoiceType::class, [
-                'choices' => $this->getChoices()
+            ->add('recipient', EntityType::class, [
+                'class' => Department::class,
+                'required' => true,
+                'choice_label' => 'name',
+                'placeholder' => 'Choisir un département',
+                'query_builder' => function(DepartmentRepository $repo) {
+                     return $repo->getListDepartment();
+                },
             ])
             ->add('message', TextareaType::class)
         ;

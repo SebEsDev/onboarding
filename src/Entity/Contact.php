@@ -39,7 +39,8 @@ class Contact
     private $mail;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Department")
+     * @ORM\JoinColumn(name="recipient", referencedColumnName="id")
      */
     private $recipient;
 
@@ -50,68 +51,101 @@ class Contact
      */
     private $message;
 
-    public function getId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getFname(): ?string
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFname()
     {
         return $this->fname;
     }
 
-    public function setFname(string $fname): self
+    /**
+     * @param mixed $fname
+     */
+    public function setFname($fname): void
     {
         $this->fname = $fname;
-
-        return $this;
     }
 
-    public function getLname(): ?string
+    /**
+     * @return mixed
+     */
+    public function getLname()
     {
         return $this->lname;
     }
 
-    public function setLname(string $lname): self
+    /**
+     * @param mixed $lname
+     */
+    public function setLname($lname): void
     {
         $this->lname = $lname;
-
-        return $this;
     }
 
-    public function getMail(): ?string
+    /**
+     * @return mixed
+     */
+    public function getMail()
     {
         return $this->mail;
     }
 
-    public function setMail(string $mail): self
+    /**
+     * @param mixed $mail
+     */
+    public function setMail($mail): void
     {
         $this->mail = $mail;
-
-        return $this;
     }
 
-    public function getRecipient(): ?string
+    /**
+     * @return Department
+     */
+    public function getRecipient()
     {
         return $this->recipient;
     }
 
-    public function setRecipient(string $recipient): self
+    /**
+     * @param Department $recipient
+     */
+    public function setRecipient($recipient): void
     {
         $this->recipient = $recipient;
-
-        return $this;
     }
 
-    public function getMessage(): ?string
+    /**
+     * @return mixed
+     */
+    public function getMessage()
     {
         return $this->message;
     }
 
-    public function setMessage(string $message): self
+    /**
+     * @param mixed $message
+     */
+    public function setMessage($message): void
     {
         $this->message = $message;
-
-        return $this;
     }
+
+
 }
